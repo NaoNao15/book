@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
+  pool: 5
+
+development:
+  <<: *default
+  database: book_development
+
+test:
+  <<: *default
+  database: book_test
+
+production:
+  <<: *default
+  database: book_production
+  username: book
+  password: <%= ENV['BOOK_DATABASE_PASSWORD'] %>
