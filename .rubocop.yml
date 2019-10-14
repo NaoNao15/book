@@ -13,3 +13,5 @@ AllCops:
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
