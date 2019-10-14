@@ -1,1 +1,15 @@
 @import "bootstrap";
+
+.top-image {
+  background-image: image-url("bookgirl.jpg");
+  background-size:cover;
+  background-position: center;
+  background-repeat:  no-repeat;
+  width:100%;
+  height:600px;
+  .top-image-text{
+    text-align: center;
+    font-size: 30px;
+    padding:  250px;
+  }
+}
