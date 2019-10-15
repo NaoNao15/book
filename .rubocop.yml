@@ -15,3 +15,4 @@ AllCops:
     - 'path/ruby'
     - 'spec/rails_helper.rb'
     - 'spec/spec_helper.rb'
+    - 'app/helpers/users_helper.rb'

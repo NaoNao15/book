@@ -1,5 +1,9 @@
 <div class="top-image">
   <div class="top-image-text">
-    <%= link_to "投稿する", "#", class: "btn btn-info" %>
+    <% unless user_signed_in? %>
+        <%= link_to "投稿する", new_user_registration_path, class: "btn btn-info" %>
+    <% else %>
+       <%= link_to "投稿する", "#", class: "btn btn-info" %>
+    <% end %>
   </div>
 </div>
