@@ -4,6 +4,9 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+        <% if @user == current_user %>
+          <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-success btn-xs" %>
+        <% end %>
       </h1>
     </section>
   </aside>
