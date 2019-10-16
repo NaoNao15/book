@@ -58,6 +58,8 @@ RSpec.configure do |config|
 
   #コントローラースペックでDeviseのテストヘルパーを使用する
   config.include Devise::Test::ControllerHelpers, type: :controller
+  #フィーチャースペックでDeviseのテストヘルパーを使用する
+  config.include Devise::Test::IntegrationHelpers, type: :feature
 
   config.include FactoryBot::Syntax::Methods
 end

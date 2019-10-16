@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
-  describe "#index" do
+  describe "indexページ表示" do
     before do
       get :index
     end
