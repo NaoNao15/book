@@ -1,15 +1,23 @@
-<p>
-  <a class="btn btn-light w-100" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    | | | |
-  </a>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <%= link_to "Home", root_path, class: "btn btn-light" %>
-    <%= link_to "All users", users_path, class: "btn btn-light" %>
-    <% if user_signed_in? %>
-      <%= link_to "My page", current_user, class: "btn btn-light" %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
-    <% end %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class: "btn btn-light nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "All users", users_path, class: "btn btn-light nav-link" %>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "My page", current_user, class: "btn btn-light nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light nav-link" %>
+      </li>
+      <% end %>
+    </ul>
   </div>
-</div>
+</nav>
