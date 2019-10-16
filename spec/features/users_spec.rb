@@ -8,7 +8,7 @@ RSpec.feature "Users", type: :feature do
     sign_in user
     visit user_path(user)
     expect(page).to have_content user.name
-    expect(page).to have_link 'プロフィール編集'
+    expect(page).to have_link 'Edit your profile'
   end
 
   scenario "ユーザー情報があるか（ログインしていないの場合）" do
@@ -19,11 +19,11 @@ RSpec.feature "Users", type: :feature do
   scenario "自分のユーザーページへ行きプロフィール情報の変更" do
     sign_in user
     visit user_path(user)
-    click_on "プロフィール編集"
-    fill_in "名前", with: "myname"
-    fill_in "メールアドレス", with: "hogehoge@example.com"
-    fill_in "現在のパスワード", with: "foobar"
-    click_on "プロフィール更新"
+    click_on "Edit your profile"
+    fill_in "Name", with: "myname"
+    fill_in "Email", with: "hogehoge@example.com"
+    fill_in "Current password", with: "foobar"
+    click_on "Update"
     expect(page).to have_content "Your account has been updated successfully."
   end
 end

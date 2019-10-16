@@ -10,10 +10,15 @@
 
   <body>
     <%= render "layouts/header" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if flash[:notice] %>
+      <div class="alert alert-info"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
     <div class="container">
-      <%= yield %>
+    <br />
+    <%= yield %>
     </div>
     <%= render "layouts/footer" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

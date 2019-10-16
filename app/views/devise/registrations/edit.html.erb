@@ -4,12 +4,12 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :name, "名前" %><br />
+    <%= f.label :name, "Name" %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name",class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.label :email, "Email" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %>
   </div>
 
@@ -18,27 +18,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password, "パスワード" %> <i>(変更しない場合は空白でお願いします)</i><br />
+    <%= f.label :password, "Password" %> <i>( leave blank if you don't want to change it )</i><br />
     <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "パスワード再入力" %><br />
+    <%= f.label :password_confirmation, "Password confirmation" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password, "現在のパスワード" %> <br />
+    <%= f.label :current_password, "Current password" %> <i>( you must fill in )</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password",class: "form-control" %>
   </div>
 <br />
   <div class="actions">
-    <%= f.submit "プロフィール更新", class: "btn btn-info w-100" %>
+    <%= f.submit "Update", class: "btn btn-info w-100" %>
   </div>
 <% end %>
 <br />
 <p>
-  <%= button_to "アカウント消去", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class: "btn btn-danger"%>
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class: "btn btn-danger"%>
 </p>
 
 </div>
