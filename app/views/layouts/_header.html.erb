@@ -1,3 +1,15 @@
-<% if user_signed_in? %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-info" %>
-<% end %>
+<p>
+  <a class="btn btn-light w-100" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    | | | |
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <%= link_to "Home", root_path, class: "btn btn-light" %>
+    <%= link_to "All users", users_path, class: "btn btn-light" %>
+    <% if user_signed_in? %>
+      <%= link_to "My page", current_user, class: "btn btn-light" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
+    <% end %>
+  </div>
+</div>
