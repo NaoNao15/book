@@ -6,4 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+
+  # def feed
+  #   Post.where("user_id = ?", id)
+  # end
 end

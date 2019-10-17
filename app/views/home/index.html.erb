@@ -3,7 +3,19 @@
     <% unless user_signed_in? %>
         <%= link_to "New post", new_user_session_path, class: "btn btn-info" %>
     <% else %>
-       <%= link_to "New post", "#", class: "btn btn-info" %>
+       <%= link_to "New post", new_post_path, class: "btn btn-info" %>
     <% end %>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <h3>Micropost Feed</h3>
+      <% if @posts.any? %>
+        <ol class="microposts">
+          <%= render @posts %>
+        </ol>
+        <%= will_paginate @posts %>
+      <% end %>
+    </div>
 </div>
