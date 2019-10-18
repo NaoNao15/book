@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       redirect_to root_url
     else
       @feed_items = []
-      flash[:notice] = "Oops... you failed to post"
+      flash.now[:notice] = "Oops... you failed to post"
       render 'posts/new'
     end
   end
