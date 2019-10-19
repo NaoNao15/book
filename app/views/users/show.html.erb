@@ -7,11 +7,15 @@
         <% if @user == current_user %>
           <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-success btn-xs" %>
         <% end %>
+        <section class="stats">
+        <%= render partial: 'shared/stats' %>
+        </section>
       </h1>
     </section>
   </aside>
 </div>
 <div class="col-md-12">
+    <%= render partial: 'follow_form' if user_signed_in? %>
     <% if @user.posts.any? %>
       <h3>Posts (<%= @user.posts.count %>)</h3>
       <ol class="microposts">
