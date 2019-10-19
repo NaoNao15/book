@@ -1,0 +1,41 @@
+<% if user_signed_in? %>
+
+  <% unless post.like_user(current_user.id).blank? %>
+    <%= link_to post_like_path(post_id: post.id ,id: post.likes[0].id), method: :delete, remote: true do %>
+      <div>
+        <%= image_tag("heart.png") %>
+        <span>
+          <%= post.likes.count %>
+        </span>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to post_likes_path(post.id), method: :post, remote: true do %>
+      <div>
+        <%= image_tag("heart2.png") %>
+        <span>
+          <%= post.likes.count %>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+
+<% else %>
+
+  <% if post.likes.count > 0 %>
+    <div>
+      <%= link_to image_tag("heart.png"), new_user_session_path %>
+      <span>
+        <%= post.likes.count %>
+      </span>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to image_tag("heart2.png"), new_user_session_path %>
+      <span>
+        <%= post.likes.count %>
+      </span>
+    </div>
+  <% end %>
+
+<% end %>

@@ -12,4 +12,7 @@
                                 data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+  <div id="likes_buttons_<%= post.id %>">
+    <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
+  </div>
 </li>
