@@ -71,8 +71,8 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it 'userを削除すると、userが投稿したpostも削除される' do
-        user.posts.create( content: 'あとで書く')
-        expect{ user.destroy }.to change{ Post.count }.by(-1)
+        user.posts.create(content: 'あとで書く')
+        expect { user.destroy }.to change { Post.count }.by(-1)
       end
     end
 

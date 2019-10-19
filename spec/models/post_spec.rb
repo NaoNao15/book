@@ -6,13 +6,13 @@ RSpec.describe Post, type: :model do
   end
 
   it "140文字以上の投稿はできない" do
-    post = build(:post, content: "a" * 141 )
+    post = build(:post, content: "a" * 141)
     post.valid?
     expect(post.errors[:content]).to include("is too long (maximum is 140 characters)")
   end
 
   it "contentがない場合は投稿ができない" do
-    post = build(:post, content: nil )
+    post = build(:post, content: nil)
     post.valid?
     expect(post.errors[:content]).to include("can't be blank")
   end
