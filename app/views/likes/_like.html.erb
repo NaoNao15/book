@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 
   <% unless post.like_user(current_user.id).blank? %>
-    <%= link_to post_like_path(post_id: post.id ,id: post.likes[0].id), method: :delete, remote: true do %>
+    <%= link_to post_like_path(post_id: post.id ,id: post.likes[0].id), id:"likes_button", method: :delete, remote: true do %>
       <div>
         <%= image_tag("heart.png") %>
         <span>
@@ -10,7 +10,7 @@
       </div>
     <% end %>
   <% else %>
-    <%= link_to post_likes_path(post.id), method: :post, remote: true do %>
+    <%= link_to post_likes_path(post.id), id:"unlikes_button", method: :post, remote: true do %>
       <div>
         <%= image_tag("heart2.png") %>
         <span>
