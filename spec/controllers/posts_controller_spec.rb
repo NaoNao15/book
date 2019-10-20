@@ -1,7 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  describe "newページ表示" do
+  describe "#show" do
+    let!(:user) { create(:user) }
+    let!(:post) { create(:post, user: user) }
+
+    before do
+      get :show, params: { id: post.id }
+    end
+
+    it "正常にレスポンスを返す" do
+      expect(response).to be_successful
+    end
+
+    it "200レスポンスを返す" do
+      expect(response).to have_http_status "200"
+    end
+
+    it "showテンプレートを表示させる" do
+      expect(response).to render_template :show
+    end
+
+    it "@postが期待される値をもつ" do
+      expect(assigns(:post)).not_to match_array post
+    end
+  end
+
+  describe "#new" do
     let!(:user) { create(:user) }
     let!(:post) { create(:post, user: user) }
 
@@ -53,7 +78,9 @@ RSpec.describe PostsController, type: :controller do
 
   describe "POST #create" do
     let!(:user) { create(:user) }
-    let(:post_attributes) { attributes_for(:post) }
+    let!(:post_attributes) { attributes_for(:post) }
+    let!(:picture_path) { File.join(Rails.root, 'spec/files/kabigon.png') }
+    let!(:picture) { Rack::Test::UploadedFile.new(picture_path) }
 
     context "ログイン済みのユーザー" do
       before do
@@ -71,7 +98,7 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it 'userを削除すると、userが投稿したpostも削除される' do
-        user.posts.create(content: 'あとで書く')
+        user.posts.create(content: 'あとで書く', picture: picture)
         expect { user.destroy }.to change { Post.count }.by(-1)
       end
     end

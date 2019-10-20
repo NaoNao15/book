@@ -16,7 +16,6 @@ class PostsController < ApplicationController
       flash[:notice] = "Post created!"
       redirect_to root_url
     else
-      @feed_items = []
       flash.now[:notice] = "Oops... you failed to post"
       render 'posts/new'
     end
@@ -25,7 +24,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     flash[:notice] = "Post deleted!"
-    redirect_to request.referrer || root_url
+    redirect_to root_url || request.referrer
   end
 
   private

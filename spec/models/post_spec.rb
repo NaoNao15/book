@@ -16,4 +16,10 @@ RSpec.describe Post, type: :model do
     post.valid?
     expect(post.errors[:content]).to include("can't be blank")
   end
+
+  it "pictureがない場合は投稿ができない" do
+    post = build(:post, picture: nil)
+    post.valid?
+    expect(post.errors[:picture]).to include("can't be blank")
+  end
 end

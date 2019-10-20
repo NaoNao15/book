@@ -2,7 +2,7 @@
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="content">
-    <%= link_to image_tag(post.picture.url), post if post.picture? %>
+    <%= link_to image_tag(post.picture.url), post, id:"post_image" if post.picture? %>
     <%= post.content %>
   </span>
   <span class="timestamp">
@@ -11,8 +11,7 @@
       <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
     </div>
     <% if current_user == post.user %>
-    <%= link_to image_tag("gomi.png"), post, method: :delete,
-                                data: { confirm: "You sure?" } %>
+      <%= link_to image_tag("gomi.png"), post, method: :delete,  data: { confirm: "You sure?"} ,id:"delete_image"%>
     <% end %>
   </span>
 </li>
