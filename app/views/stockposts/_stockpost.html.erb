@@ -1,0 +1,41 @@
+<% if user_signed_in? %>
+
+  <% unless post.stock_user(current_user.id).blank? %>
+    <%= link_to post_stockpost_path(post_id: post.id ,id: post.stockposts[0].id), method: :delete, remote: true do %>
+      <div>
+       <%= image_tag("book2.png") %>
+        <span>
+          <%= post.stockposts.count %>
+        </span>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to post_stockposts_path(post.id), method: :post, remote: true do %>
+     <div>
+      <%= image_tag("book.png") %>
+        <span>
+          <%= post.stockposts.count %>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+
+<% else %>
+
+  <% if post.stockposts.count > 0 %>
+    <div>
+    <%= link_to image_tag("book2.png"), new_user_session_path %>
+      <span>
+        <%= post.stockposts.count %>
+      </span>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to image_tag("book.png"), new_user_session_path %>
+      <span>
+        <%= post.stockposts.count %>
+      </span>
+    </div>
+  <% end %>
+
+<% end %>

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
     @like_posts = @user.likes
+    @stockposts = @user.stockposts
   end
 
   def following
