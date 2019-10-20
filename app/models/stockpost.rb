@@ -1,0 +1,2 @@
+class Stockpost < ApplicationRecord
+end
