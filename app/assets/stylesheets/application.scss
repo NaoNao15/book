@@ -82,7 +82,11 @@ aside {
   padding: 0;
   li {
     padding: 10px;
-    border: 1px solid #e8e8e8;
+    float:  left;
+    border-bottom: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    margin-bottom: 100px;
   }
   .user {
     margin-top: 5em;

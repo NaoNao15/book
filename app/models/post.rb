@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validate  :picture_size
 
   def like_user(user_id)
-   likes.find_by(user_id: user_id)
+    likes.find_by(user_id: user_id)
   end
 
   private

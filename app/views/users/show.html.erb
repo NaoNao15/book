@@ -33,7 +33,13 @@
         <%= will_paginate @posts %>
       <% end %>
     </div>
-    <div class="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab">like</div>
+    <div class="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab">
+      <% @like_posts.each do |like| %>
+        <ol class="microposts">
+        <%= render partial: 'posts/post', locals: { post: like.post } %>
+        </ol>
+      <% end %>
+    </div>
     <div class="tab-pane fade" id="nav-following" role="tabpanel" aria-labelledby="nav-following-tab">
       <%= link_to following_user_path(@user) do %>
           フォロー（<%= @user.following.count %>）
