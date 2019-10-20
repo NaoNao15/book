@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
+  validates :picture, presence: true
   validate  :picture_size
 
   def like_user(user_id)
