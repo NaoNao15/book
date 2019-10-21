@@ -24,10 +24,10 @@
       <ol class="microposts">
         <%= render @posts %>
       </ol>
-      <%= will_paginate @posts %>
     <% end %>
   </div>
   <div class="tab-pane fade" id="nav-trend" role="tabpanel" aria-labelledby="nav-trend-tab">trend</div>
 </div>
+<%= will_paginate @posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
 
 </div>

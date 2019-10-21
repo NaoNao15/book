@@ -35,8 +35,8 @@
         <ol class="microposts">
           <%= render @posts %>
         </ol>
-        <%= will_paginate @posts %>
       <% end %>
+      <%= will_paginate @posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
     </div>
     <div class="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab">
       <% @like_posts.each do |like| %>
@@ -44,6 +44,7 @@
         <%= render partial: 'posts/post', locals: { post: like.post } %>
         </ol>
       <% end %>
+      <%= will_paginate @like_posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
     </div>
 
     <div class="tab-pane fade" id="nav-stockpost" role="tabpanel" aria-labelledby="nav-stockpost-tab">
@@ -52,6 +53,7 @@
         <%= render partial: 'posts/post', locals: { post: stockpost.post } %>
         </ol>
       <% end %>
+      <%= will_paginate @stockposts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
     </div>
 
     <div class="tab-pane fade" id="nav-following" role="tabpanel" aria-labelledby="nav-following-tab">

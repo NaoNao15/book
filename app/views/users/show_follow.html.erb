@@ -18,7 +18,7 @@
             </div>
         <% end %>
       </ul>
-      <%= will_paginate %>
+      <%= will_paginate @users,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
     <% end %>
   </div>
 </div>
