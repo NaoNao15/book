@@ -19,5 +19,11 @@
       </li>
       <% end %>
     </ul>
+      <form class="form-inline">
+      <%= search_form_for @search, url:root_path do |f| %>
+        <%= f.search_field :content_cont, class: "form-control mr-sm-2", placeholder:"  keyword..." %>
+        <%= f.submit "Serch", class: "btn btn-light"%>
+      <% end %>
+    </form>
   </div>
 </nav>
