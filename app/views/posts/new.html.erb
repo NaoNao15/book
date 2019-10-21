@@ -3,7 +3,7 @@
 <div class="col-md-6 mx-auto">
 <%= form_for(@post) do |f| %>
   <div class="field">
-    <%= f.text_area :content, class: "form-control", placeholder: "Compose new post..." %>
+    <%= f.text_area :content, class: "form-control", placeholder: "About your important book..." %>
   </div>
   <span class="picture">
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>

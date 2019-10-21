@@ -9,7 +9,7 @@ RSpec.feature "Posts", type: :feature do
 
   scenario "投稿成功" do
     visit new_post_path
-    fill_in "Compose new post...", with: "hello!"
+    fill_in "About your important book...", with: "hello!"
     attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
     click_on "Post"
     expect(page).to have_content "Post created!"
@@ -23,7 +23,7 @@ RSpec.feature "Posts", type: :feature do
 
   scenario "投稿後、その投稿を削除する" do
     visit new_post_path
-    fill_in "Compose new post...", with: "hello!"
+    fill_in "About your important book...", with: "hello!"
     attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
     click_on "Post"
     expect(page).to have_content "Post created!"
@@ -33,7 +33,7 @@ RSpec.feature "Posts", type: :feature do
 
   scenario "投稿後、その記事の詳細画面へ移行することができる" do
     visit new_post_path
-    fill_in "Compose new post...", with: "hello!"
+    fill_in "About your important book...", with: "hello!"
     attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
     click_on "Post"
     expect(page).to have_content "Post created!"

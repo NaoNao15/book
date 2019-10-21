@@ -1,9 +1,11 @@
 <div class="top-image">
   <div class="top-image-text">
     <% unless user_signed_in? %>
-        <%= link_to "New post", new_user_session_path, class: "btn btn-info" %>
+        <h1> Please tell me the book that remains in your mind. </h1>
+        <%= link_to "Please post your book.", new_user_session_path, class: "btn btn-light" %>
     <% else %>
-       <%= link_to "New post", new_post_path, class: "btn btn-info" %>
+        <h1> Please tell me the book that remains in your mind. </h1>
+        <%= link_to "Please post your book.", new_post_path, class: "btn btn-light" %>
     <% end %>
   </div>
 </div>
