@@ -1,7 +1,29 @@
 <div class="container">
 
 <ol class="microposts">
-  <%= render partial: 'post', locals: { post: @post } %>
+  <li id="micropost-<%= @post.id %>" class="col-md-12">
+    <%= link_to gravatar_for(@post.user, size: 50), @post.user %>
+    <span class="user"><%= link_to @post.user.name, @post.user %></span>
+    <span class="content">
+      <%= link_to image_tag(@post.picture.url), @post, id:"post_image" if @post.picture? %>
+      <%= @post.content %>
+    </span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(@post.created_at) %> ago.
+
+      <div id="likes_buttons_<%= @post.id %>">
+        <%= render partial: 'likes/like', locals: { post: @post, likes: @likes} %>
+      </div>
+
+      <div id="stockposts_buttons_<%= @post.id %>">
+       <%= render partial: 'stockposts/stockpost', locals: { post: @post, stockposts: @stockposts} %>
+      </div>
+
+      <% if current_user == @post.user %>
+        <%= link_to image_tag("gomi.png"), @post, method: :delete,  data: { confirm: "You sure?"} ,id:"delete_image"%>
+      <% end %>
+    </span>
+  </li>
 </ol>
 
 </div>
