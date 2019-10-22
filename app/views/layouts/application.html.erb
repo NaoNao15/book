@@ -14,7 +14,6 @@
     <% if flash[:alert] %>
       <div class="alert alert-danger"><%= flash[:alert] %></div>
     <% end %>
-    <br />
     <%= yield %>
     <%= render "layouts/footer" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

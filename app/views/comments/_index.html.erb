@@ -1,6 +1,6 @@
 <% comments.each do |comment| %>
-  <p id="comment_delete_image">comment：<%= comment.content %>
+  <p>comment：<%= comment.content %>
   <% if comment.user == current_user %>
-    <%= link_to image_tag("gomi3.png"), post_comment_path(comment.post_id, comment.id), method: :delete %></p>
+    <%= link_to image_tag("gomi3.png"), post_comment_path(comment.post_id, comment.id), method: :delete ,id:"comment_delete_image"%></p>
   <% end %>
 <% end %>
