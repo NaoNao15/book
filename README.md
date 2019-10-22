@@ -1,24 +1,22 @@
-# README
+# 概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* 心に残っている本を共有するサービスになります。https://secure-wave-53613.herokuapp.com
 
-Things you may want to cover:
+# 搭載している機能
 
-* Ruby version
+* 投稿記事の投稿/削除機能
+* 画像アップロード機能
+* 投稿記事のストック機能
+* ライク機能
+* 検索機能
+* フォロー機能
+* コメント機能
+* ログイン機能（deviseを使用）
 
-* System dependencies
+# 使用した技術
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails
+* Docker環境構築
+* Rspec（controllers/models/featuresテスト）
+* Heroku
+* Rubocop
