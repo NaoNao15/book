@@ -1,6 +1,6 @@
 <%= form_for(comment, url:post_comments_path(post)) do |form| %>
   <div>
-    <%= form.text_area :content, class: "form-control" %>
+    <%= form.text_area :content, class: "form-control", placeholder: "Comment..." %>
     <%= hidden_field_tag :post_id, post.id %>
   </div>
   <div class="actions">

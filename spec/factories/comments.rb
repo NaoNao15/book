@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    content "MyString"
-    user_id 1
-    post_id 1
+    content "a"
+    association :user
+    association :post
   end
 end

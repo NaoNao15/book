@@ -42,4 +42,29 @@ RSpec.feature "Posts", type: :feature do
     expect(page).to have_css '.user'
     expect(page).to have_css '.content'
   end
+
+  scenario "投稿後、その記事の詳細画面へ移行し、コメントを行う" do
+    visit new_post_path
+    fill_in "About your important book...", with: "hello!"
+    attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
+    click_on "Post"
+    expect(page).to have_content "Post created!"
+    find('#post_image').click
+    fill_in "Comment...", with: "hello"
+    click_on "Comment"
+    expect(page).to have_content "comment："
+  end
+
+  scenario "投稿後、その記事の詳細画面へ移行し、コメントを作成し、削除する" do
+    visit new_post_path
+    fill_in "About your important book...", with: "hello!"
+    attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
+    click_on "Post"
+    expect(page).to have_content "Post created!"
+    find('#post_image').click
+    fill_in "Comment...", with: "hello"
+    click_on "Comment"
+    expect(page).to have_content "comment："
+    find("#comment_delete_image").click
+  end
 end
