@@ -1,26 +1,22 @@
-<% provide(:title, @title) %>
-
 <div class="container">
-
-<div class="row">
-  <div class="col-md-12">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <% @users.each do |user| %>
-            <div>
-              <div class="card">
-                <div class="card-body">
-                  <%= link_to gravatar_for(user, size: 50), user %><br/>
-                  <%= link_to "@#{user.name}", user %>
-                </div>
-               </div>
-            </div>
-        <% end %>
-      </ul>
-      <%= will_paginate @users,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-    <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <h3><%= @title %></h3>
+      <% if @users.any? %>
+        <ul class="users follow">
+          <% @users.each do |user| %>
+              <div>
+                <div class="card">
+                  <div class="card-body">
+                    <%= link_to gravatar_for(user, size: 50), user %><br/>
+                    <%= link_to "@#{user.name}", user %>
+                  </div>
+                 </div>
+              </div>
+          <% end %>
+        </ul>
+        <%= will_paginate @users,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      <% end %>
+    </div>
   </div>
-</div>
-
 </div>

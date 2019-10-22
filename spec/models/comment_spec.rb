@@ -15,5 +15,5 @@ RSpec.describe Comment, type: :model do
     comment = build(:comment, content: "a" * 61)
     comment.valid?
     expect(comment.errors[:content]).to include("is too long (maximum is 60 characters)")
-  end
+  end  
 end

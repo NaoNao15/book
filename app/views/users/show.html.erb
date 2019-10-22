@@ -1,74 +1,65 @@
 <div class="container">
-
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-        <% if @user == current_user %>
-          <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-success btn-xs" %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1>
+          <%= gravatar_for @user %>
+          <%= @user.name %>
+          <% if @user == current_user %>
+            <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-success btn-xs" %>
+          <% end %>
+        </h1>
+      </section>
+    </aside>
+    <div class="col-md-8 button">
+      <%= render partial: 'follow_form' if user_signed_in? %>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">Posts 📝</a>
+        <a class="nav-item nav-link" id="nav-like-tab" data-toggle="tab" href="#nav-like" role="tab" aria-controls="nav-like" aria-selected="false">Like 💙</a>
+        <a class="nav-item nav-link" id="nav-stockpost-tab" data-toggle="tab" href="#nav-stockpost" role="tab" aria-controls="nav-stockpost" aria-selected="false">StockBook 📚</a>
+        <a class="nav-item nav-link" id="nav-following-tab" data-toggle="tab" href="#nav-following" role="tab" aria-controls="nav-following" aria-selected="false">Following 👫</a>
+        <a class="nav-item nav-link" id="nav-followers-tab" data-toggle="tab" href="#nav-followers" role="tab" aria-controls="nav-followers" aria-selected="false">Followers 👫</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">
+        <% if @user.posts.any? %>
+          <ol class="microposts">
+            <%= render @posts %>
+          </ol>
         <% end %>
-      </h1>
-    </section>
-  </aside>
-  <div class="col-md-8 button">
-    <%= render partial: 'follow_form' if user_signed_in? %>
-  </div>
-</div>
-<div class="col-md-12">
-
-  <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">Posts 📝</a>
-      <a class="nav-item nav-link" id="nav-like-tab" data-toggle="tab" href="#nav-like" role="tab" aria-controls="nav-like" aria-selected="false">Like 💙</a>
-
-      <a class="nav-item nav-link" id="nav-stockpost-tab" data-toggle="tab" href="#nav-stockpost" role="tab" aria-controls="nav-stockpost" aria-selected="false">StockBook 📚</a>
-
-      <a class="nav-item nav-link" id="nav-following-tab" data-toggle="tab" href="#nav-following" role="tab" aria-controls="nav-following" aria-selected="false">Following 👫</a>
-      <a class="nav-item nav-link" id="nav-followers-tab" data-toggle="tab" href="#nav-followers" role="tab" aria-controls="nav-followers" aria-selected="false">Followers 👫</a>
-    </div>
-  </nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">
-      <% if @user.posts.any? %>
-        <ol class="microposts">
-          <%= render @posts %>
-        </ol>
-      <% end %>
-      <%= will_paginate @posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-    </div>
-    <div class="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab">
-      <% @like_posts.each do |like| %>
-        <ol class="microposts">
-        <%= render partial: 'posts/post', locals: { post: like.post } %>
-        </ol>
-      <% end %>
-      <%= will_paginate @like_posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-    </div>
-
-    <div class="tab-pane fade" id="nav-stockpost" role="tabpanel" aria-labelledby="nav-stockpost-tab">
-      <% @stockposts.each do |stockpost| %>
-        <ol class="microposts">
-        <%= render partial: 'posts/post', locals: { post: stockpost.post } %>
-        </ol>
-      <% end %>
-      <%= will_paginate @stockposts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-    </div>
-
-    <div class="tab-pane fade" id="nav-following" role="tabpanel" aria-labelledby="nav-following-tab">
-      <%= link_to following_user_path(@user) do %>
+        <%= will_paginate @posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </div>
+      <div class="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab">
+        <% @like_posts.each do |like| %>
+          <ol class="microposts">
+          <%= render partial: 'posts/post', locals: { post: like.post } %>
+          </ol>
+        <% end %>
+        <%= will_paginate @like_posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </div>
+      <div class="tab-pane fade" id="nav-stockpost" role="tabpanel" aria-labelledby="nav-stockpost-tab">
+        <% @stockposts.each do |stockpost| %>
+          <ol class="microposts">
+          <%= render partial: 'posts/post', locals: { post: stockpost.post } %>
+          </ol>
+        <% end %>
+        <%= will_paginate @stockposts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </div>
+      <div class="tab-pane fade" id="nav-following" role="tabpanel" aria-labelledby="nav-following-tab">
+        <%= link_to following_user_path(@user) do %>
           フォロー（<%= @user.following.count %>）
-     <%  end %>
-    </div>
-    <div class="tab-pane fade" id="nav-followers" role="tabpanel" aria-labelledby="nav-followers-tab">
-      <%= link_to followers_user_path(@user) do %>
+        <%  end %>
+      </div>
+      <div class="tab-pane fade" id="nav-followers" role="tabpanel" aria-labelledby="nav-followers-tab">
+        <%= link_to followers_user_path(@user) do %>
           フォロー（<%= @user.followers.count %>）
-     <%  end %>
+        <%  end %>
+      </div>
     </div>
   </div>
-
-  </div>
-</div>
-
 </div>

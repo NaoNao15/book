@@ -1,14 +1,11 @@
 <div class="container">
-
-<%= will_paginate @users,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
-</ul>
-
+  <%= will_paginate @users,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+  <ul class="users">
+    <% @users.each do |user| %>
+      <li>
+        <%= gravatar_for user, size: 50 %>
+        <%= link_to user.name, user %>
+      </li>
+    <% end %>
+  </ul>
 </div>

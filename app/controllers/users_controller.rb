@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @users = User.paginate(page: params[:page], per_page: 8)
   end
 
   def show
@@ -24,10 +24,3 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 end
-
-# private
-#
-# def correct_user
-#   @user = User.find(params[:id])
-#   redirect_to(root_url) unless current_user?(@user)
-# end
