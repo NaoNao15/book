@@ -4,7 +4,7 @@ class HomeController < ApplicationController
       @search = Post.ransack(params[:q])
       @posts = @search.result.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     else
-      @posts = Post.all.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+      @posts = Post.all.paginate(page: params[:page], per_page: 10)
     end
   end
 end
