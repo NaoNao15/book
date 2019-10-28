@@ -12,7 +12,7 @@
 <div class="container">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">All-Posts 📝</a>
+      <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">All-posts 📝</a>
       <a class="nav-item nav-link" id="nav-liketrends-tab" data-toggle="tab" href="#nav-liketrends" role="tab" aria-controls="nav-liketrends" aria-selected="false">Like-trends 💙</a>
       <a class="nav-item nav-link" id="nav-stocktrends-tab" data-toggle="tab" href="#nav-stocktrends" role="tab" aria-controls="nav-stocktrends" aria-selected="false">Stock-trends 📚</a>
     </div>
@@ -24,6 +24,9 @@
           <%= render @posts %>
         </ol>
       <% end %>
+      <p>
+        <%= will_paginate @posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </p>
     </div>
     <div class="tab-pane fade" id="nav-liketrends" role="tabpanel" aria-labelledby="nav-liketrends-tab">
       <% @like_trend_posts.each do |like_trend_post| %>
@@ -31,6 +34,9 @@
         <%= render partial: 'posts/post', locals: { post: like_trend_post } %>
         </ol>
       <% end %>
+      <p>
+        <%= will_paginate @like_trend_posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </p>
     </div>
     <div class="tab-pane fade" id="nav-stocktrends" role="tabpanel" aria-labelledby="nav-stocktrends-tab">
       <% @stock_trend_posts.each do |stock_trend_post| %>
@@ -38,8 +44,9 @@
         <%= render partial: 'posts/post', locals: { post: stock_trend_post } %>
         </ol>
       <% end %>
+      <p>
+        <%= will_paginate @stock_trend_posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+      </p>
     </div>
   </div>
-
-  <%= will_paginate @posts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
 </div>
