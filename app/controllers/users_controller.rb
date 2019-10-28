@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page], per_page: 10)
-    @like_posts = @user.likes.paginate(page: params[:page], per_page: 10)
-    @stockposts = @user.stockposts.paginate(page: params[:page], per_page: 10)
+    @like_posts = @user.likes.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
+    @stockposts = @user.stockposts.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
   end
 
   def following
