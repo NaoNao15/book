@@ -27,7 +27,7 @@ RSpec.feature "Posts", type: :feature do
     attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
     click_on "Post"
     expect(page).to have_content "Post created!"
-    find('#delete_image').click
+    first('#delete_image').click
     expect(page).to have_content "Post deleted!"
   end
 
@@ -37,7 +37,7 @@ RSpec.feature "Posts", type: :feature do
     attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
     click_on "Post"
     expect(page).to have_content "Post created!"
-    find('#post_image').click
+    first('#post_image').click
     expect(page).to have_css '.timestamp'
     expect(page).to have_css '.user'
     expect(page).to have_css '.content'
@@ -49,7 +49,7 @@ RSpec.feature "Posts", type: :feature do
     attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
     click_on "Post"
     expect(page).to have_content "Post created!"
-    find('#post_image').click
+    first('#post_image').click
     fill_in "Comment...", with: "hello"
     click_on "Comment"
     expect(page).to have_content "comment："
@@ -61,7 +61,7 @@ RSpec.feature "Posts", type: :feature do
     attach_file "post[picture]", "#{Rails.root}/spec/files/kabigon.png"
     click_on "Post"
     expect(page).to have_content "Post created!"
-    find('#post_image').click
+    first('#post_image').click
     fill_in "Comment...", with: "hello"
     click_on "Comment"
     expect(page).to have_content "comment："

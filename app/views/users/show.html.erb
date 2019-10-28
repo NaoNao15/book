@@ -50,12 +50,12 @@
         <% end %>
         <%= will_paginate @stockposts,:previous_label => '&lt', :next_label => '&gt', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
       </div>
-      <div class="tab-pane fade" id="nav-following" role="tabpanel" aria-labelledby="nav-following-tab">
-        <%= link_to following_user_path(@user) do %>
-          フォロー（<%= @user.following.count %>）
-        <%  end %>
+      <div class="tab-pane fade" id="nav-following" role="tabpanel" aria-labelledby="nav-following-tab" style="margin-top: 40px;">
+          <%= link_to following_user_path(@user) do %>
+            フォロー（<%= @user.following.count %>）
+          <%  end %>
       </div>
-      <div class="tab-pane fade" id="nav-followers" role="tabpanel" aria-labelledby="nav-followers-tab">
+      <div class="tab-pane fade" id="nav-followers" role="tabpanel" aria-labelledby="nav-followers-tab" style="margin-top: 40px;">
         <%= link_to followers_user_path(@user) do %>
           フォロー（<%= @user.followers.count %>）
         <%  end %>
