@@ -10,6 +10,11 @@
       <li class="nav-item">
         <%= link_to "All users", users_path, class: "btn btn-light nav-link" %>
       </li>
+      <% unless user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-light nav-link" %>
+      </li>
+      <% end %>
       <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to "My page", current_user, class: "btn btn-light nav-link" %>
