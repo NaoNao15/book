@@ -17,6 +17,15 @@ class Post < ApplicationRecord
     stockposts.find_by(user_id: user_id)
   end
 
+  def self.like_trend_sql
+    joins("left join likes on posts.id = likes.post_id")
+    .group("posts.id").order(Arel.sql("count(likes.id) desc"))
+  end
+
+  def self.stock_trend_sql
+    joins("left join stockposts on posts.id = stockposts.post_id").group("posts.id").order(Arel.sql("count(stockposts.id) desc"))
+  end
+
   private
 
   def picture_size
