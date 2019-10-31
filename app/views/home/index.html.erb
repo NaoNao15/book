@@ -2,19 +2,19 @@
   <div class="top-image-text">
     <% unless user_signed_in? %>
         <h1> Please tell me the book that remains in your mind. </h1>
-        <%= link_to "Please post your book.", new_user_session_path, class: "btn btn-light" %>
+        <%= link_to " Please post your book.", new_user_session_path, class: "btn btn-light fas fa-sign-in-alt" %>
     <% else %>
         <h1> Please tell me the book that remains in your mind. </h1>
-        <%= link_to "Please post your book.", new_post_path, class: "btn btn-light" %>
+        <%= link_to " Please post your book.", new_post_path, class: "btn btn-light fas fa-book" %>
     <% end %>
   </div>
 </div>
 <div class="container">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">All-posts 📝</a>
+      <a class="nav-item nav-link active" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="true">All-posts 📚</a>
       <a class="nav-item nav-link" id="nav-liketrends-tab" data-toggle="tab" href="#nav-liketrends" role="tab" aria-controls="nav-liketrends" aria-selected="false">Like-trends 💙</a>
-      <a class="nav-item nav-link" id="nav-stocktrends-tab" data-toggle="tab" href="#nav-stocktrends" role="tab" aria-controls="nav-stocktrends" aria-selected="false">Stock-trends 📚</a>
+      <a class="nav-item nav-link" id="nav-stocktrends-tab" data-toggle="tab" href="#nav-stocktrends" role="tab" aria-controls="nav-stocktrends" aria-selected="false">Stock-trends 📂</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
