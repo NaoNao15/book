@@ -1,4 +1,4 @@
-<li id="micropost-<%= post.id %>" class="col-md-12">
+<li id="micropost-<%= post.id %>" class="col-md-12"  style="z-index: 1;">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="content">

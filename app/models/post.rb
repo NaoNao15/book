@@ -18,8 +18,7 @@ class Post < ApplicationRecord
   end
 
   def self.like_trend_sql
-    joins("left join likes on posts.id = likes.post_id")
-    .group("posts.id").order(Arel.sql("count(likes.id) desc"))
+    joins("left join likes on posts.id = likes.post_id").group("posts.id").order(Arel.sql("count(likes.id) desc"))
   end
 
   def self.stock_trend_sql
