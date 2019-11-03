@@ -16,6 +16,36 @@
   }
 }
 
+.sign-in-image {
+  background-image: image-url("book7.jpg");
+  background-size:cover;
+  width:100%;
+  height:100vh;
+  .sign-in-form {
+    border-radius: 3%;
+  }
+}
+
+.sign-up-image {
+  background-image: image-url("book8.jpg");
+  background-size:cover;
+  width:100%;
+  height:100vh;
+  .sign-up-form {
+    border-radius: 3%;
+  }
+}
+
+.posts-new-image {
+  background-image: image-url("book9.jpg");
+  background-size:cover;
+  width:100%;
+  height:100vh;
+  .posts-new-form {
+    border-radius: 3%;
+  }
+}
+
 /* sidebar */
 
 aside {

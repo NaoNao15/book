@@ -1,13 +1,17 @@
-<div class="container">
+<div class="posts-new-image">
   <div class="col-md-6 mx-auto">
-  <%= form_for(@post) do |form| %>
-    <div class="field">
-      <%= form.text_area :content, class: "form-control", placeholder: "About your important book..." %>
+    <div class="card posts-new-form">
+      <div class="card-body">
+      <%= form_for(@post) do |form| %>
+        <div class="field">
+          <%= form.text_area :content, class: "form-control", placeholder: "About your important book..." %>
+        </div>
+        <span class="picture">
+          <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </span>
+        <%= form.submit "Post", class: "btn btn-info form-control" %>
+      <% end %>
+      </div>
     </div>
-    <span class="picture">
-      <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-    </span>
-    <%= form.submit "Post", class: "btn btn-info form-control" %>
-  <% end %>
   </div>
 </div>
